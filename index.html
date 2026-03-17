@@ -360,102 +360,356 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
 
 
 
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <title>Visualizations on the Human-object Interactions predicted by CoopDiT</title>-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 20px; /* Font size increased */
+            margin: 20px; /* Increased page margin */
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background-color: #035720;
+            color: white;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 32px; /* Increased header font size */
+        }
+
+        h2 {
+            font-size: 28px; /* Increased section header font size */
+            text-align: center;
+            color: #333;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        /* Short-term prediction section GIFs - 3 columns */
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Spread GIFs evenly */
+            gap: 10px; /* Decreased gap between GIFs */
+        }
+
+        .video-container img {
+            width: 30%; /* 3 columns layout */
+            height: auto;
+            border-radius: 8px;
+            animation: loopGif 10s infinite; /* Force looping effect */
+        }
+
+        /* Long-term prediction section GIFs - 4 columns */
+        .video-container.long-term {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Spread GIFs evenly */
+            gap: 10px; /* Decreased gap between GIFs */
+        }
+
+        .video-container.long-term img {
+            width: 23%; /* 4 columns layout */
+            height: auto;
+            border-radius: 8px;
+            animation: loopGif 10s infinite; /* Force looping effect */
+        }
+
+        /* For the last section, split into four containers */
+        .quad-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .quad-container div {
+            width: 48%; /* Adjust width for 4 blocks */
+        }
+
+        .half-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Decreased gap between images in half-container */
+        }
+
+        .half-container img {
+            width: 48%; /* Adjust width for half-container images */
+        }
+
+        @keyframes loopGif {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px; /* Max video width for gallery */
+            height: auto;
+            border-radius: 0.5rem; /* Equivalent to rounded-lg */
+            background-color: #f3f4f6; /* bg-gray-100 for placeholder */
+            margin-top: 0.5rem; /* mt-2 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        /* Video placeholder style */
+        video[poster] {
+            object-fit: cover; /* Ensure poster image covers the video area */
+        }
+
+        .comparison-grid { /* Container for the 2x2 grid */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 1.5rem; /* gap-6 */
+        }
+        .comparison-grid .comparison-video-item video {
+            max-width: 100%; /* Ensure comparison videos fit their grid cell */
+            margin-bottom: 0.5rem; /* Adjust bottom margin for comparison videos */
+        }
+        /* Responsive adjustments for smaller screens if needed */
+        @media (max-width: 768px) { /* md breakpoint */
+            .comparison-grid {
+                grid-template-columns: repeat(1, 1fr); /* Stack to one column on smaller screens */
+            }
+        }
+
+        /* Section 2: 4 columns */
+        .long-term-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four columns layout */
+            gap: 1.5rem; /* gap-6 */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Total Title -->
+    <header>
+        <h1 class="text-5xl font-semibold text-white-800 mb-6">Visualizations on the Human-object Interactions predicted by CoopDiT</h1>
+    </header>
+
+
+
+<!--    新版本-->
+    <section class="mb-12">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">I. Visualizations on the Short-term Prediction</h2>
+            <p class="text-lg text-gray-700 mb-10 text-center">
+                <strong>CoopDiT</strong> can predict reasonable and realistic Human-object Interactions. The historical HOIs are in gray, and the predictions are in color.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/ST_1.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20character%20is%20running%20on%20a%20treadmill" src="./files/ST_2.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=person%20walking%20on%20unstable%20structure%20trying%20to%20maintain%20balance" src="./files/ST_3.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/ST_4.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20character%20is%20running%20on%20a%20treadmill" src="./files/ST_5.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=person%20walking%20on%20unstable%20structure%20trying%20to%20maintain%20balance" src="./files/ST_6.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/ST_7.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20character%20is%20running%20on%20a%20treadmill" src="./files/ST_8.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=person%20walking%20on%20unstable%20structure%20trying%20to%20maintain%20balance" src="./files/ST_9.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/ST_10.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20character%20is%20running%20on%20a%20treadmill" src="./files/ST_11.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Video displaying a GIF -->
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=person%20walking%20on%20unstable%20structure%20trying%20to%20maintain%20balance" src="./files/ST_12.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+            </div>
+    </section>
+
+    <section class="mb-12">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-10">II. Visualizations on the Long-term Prediction</h2>
+            <p class="text-lg text-gray-700 mb-10 text-center">
+                <strong>CoopDiT</strong> can predict reasonable and realistic Human-object Interactions, even in the long-term prediction setting (autoregressively predict 100 future frames based on the past 10 frames). The historical HOIs are in gray, and the predictions are in color.
+            </p>
+
+            <div class="long-term-grid">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/LT_1.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+                <!-- Repeat the above block for other items -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/LT_2.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/LT_3.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img controls loop poster="https://placehold.co/600x400/E2E8F0/4A5568?text=A%20person%20hops%20forward%20using%20both%20feet" src="./files/LT_4.gif" onerror="this.src='https://placehold.co/600x400.mkv?text=Video+Not+Found'; this.poster='https://placehold.co/600x400/E2E8F0/4A5568?text=Error+Loading+Video';">
+                    </img>
+                </div>
+            </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-10">III. Visual Comparisons with the Current State-of-the-Art Method</h2>
+        <p class="text-lg text-gray-700 mb-10 text-center">
+             <strong>CoopDiT</strong> predicts more reasonable and realistic Human-object Interactions, with fewer cases of mesh interpenetration and object floating artifacts compared to InterDiff. The historical HOIs are in gray, and the predictions are in color.
+        </p>
+
+
+
+
+            <div class="comparison-block space-y-4 px-6">
+              <!-- Row 1: InterDiff -->
+                  <div class="comparison-video-item bg-gray-100 p-4 rounded-lg shadow-md flex items-center gap-4 mb-6">
+
+                      <!-- left model name -->
+                      <div class="w-24 shrink-0 flex items-center justify-center">
+                          <h5 class="text-md font-semibold text-gray-700">InterDiff</h5>
+                      </div>
+
+                      <!-- right 3 videos -->
+                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1 justify-items-center">
+                          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <img src="./files/CMP_i1.gif" alt="InterDiff video 1" class="w-full max-w-[440px] rounded"
+                                   onerror="this.src='https://placehold.co/300x200/E2E8F0/4A5568?text=Error+Loading+Video';">
+                          </div>
+                          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <img src="./files/CMP_i2.gif" alt="InterDiff video 2" class="w-full max-w-[440px] rounded"
+                                   onerror="this.src='https://placehold.co/300x200/E2E8F0/4A5568?text=Error+Loading+Video';">
+                          </div>
+                          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <img src="./files/CMP_i3.gif" alt="InterDiff video 3" class="w-full max-w-[440px] rounded"
+                                   onerror="this.src='https://placehold.co/300x200/E2E8F0/4A5568?text=Error+Loading+Video';">
+                          </div>
+                      </div>
+
+                  </div>
+            </div>
+
+            <div class="comparison-block space-y-4 px-6">
+            <!-- Row 2: CoopDiT (Ours) -->
+                  <div class="comparison-video-item bg-gray-100 p-4 rounded-lg shadow-md flex items-center gap-4">
+
+                      <!-- left model name -->
+                      <div class="w-24 shrink-0 flex items-center justify-center">
+                          <h5 class="text-md font-semibold text-gray-700">CoopDiT (Ours)</h5>
+                      </div>
+
+                      <!-- right 3 videos -->
+                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1 justify-items-center">
+                          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <img src="./files/CMP_o1.gif" alt="CoopDiT video 1" class="w-full max-w-[440px] rounded"
+                                   onerror="this.src='https://placehold.co/300x200/E2E8F0/4A5568?text=Error+Loading+Video';">
+                          </div>
+                          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <img src="./files/CMP_o2.gif" alt="CoopDiT video 2" class="w-full max-w-[440px] rounded"
+                                   onerror="this.src='https://placehold.co/300x200/E2E8F0/4A5568?text=Error+Loading+Video';">
+                          </div>
+                          <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <img src="./files/CMP_o3.gif" alt="CoopDiT video 3" class="w-full max-w-[440px] rounded"
+                                   onerror="this.src='https://placehold.co/300x200/E2E8F0/4A5568?text=Error+Loading+Video';">
+                          </div>
+                      </div>
+
+                  </div>
+            </div>
+
+
+
+    </section>
+</body>
+</html>
+
 
 
 
